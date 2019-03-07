@@ -59,6 +59,38 @@
       "jobTitle": "Super Dog",
       "twitter": "snoopysuperdog",
       "id": "Tab9I7W"
+    },
+    {
+      "firstName": "Manuel",
+      "lastName": "Quiñonez",
+      "email": "manny2007q@example.com",
+      "jobTitle": "Productor de Cine",
+      "twitter": "mannyfilms1",
+      "id": "n8SkH8I"
+    },
+    {
+      "firstName": "María José",
+      "lastName": "Sánchez",
+      "email": "majosanchez@example.com",
+      "jobTitle": "Historiadora del Arte",
+      "twitter": "majosanchez",
+      "id": "QfvvQpO"
+    },
+    {
+      "firstName": "Mónica",
+      "lastName": "Guzmán",
+      "email": "monicaguzman@example.com",
+      "jobTitle": "Filósofa del Feminismo",
+      "twitter": "monicaguzman",
+      "id": "bACOxRF"
+    },
+    {
+      "firstName": "Monserrat",
+      "lastName": "López",
+      "email": "monselopez@example.com",
+      "jobTitle": "Agente de Ventas",
+      "twitter": "monse",
+      "id": "mTqZDKW"
     }
   ]
 }
