@@ -1,6 +1,6 @@
 import React from 'react';
 import Gravatar from './Gravatar';
-function BadgesListItem(props) {
+const BadgesListItem = (props) => {
   return (
     <div className="BadgesListItem">
       <Gravatar className="BadgesListItem__avatar" email={props.badge.email} />
@@ -15,6 +15,6 @@ function BadgesListItem(props) {
       </div>
     </div>
   );
-}
+};
 
 export default BadgesListItem;

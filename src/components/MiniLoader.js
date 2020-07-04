@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import './styles/Loader.css';
 
-export default class MiniLoader extends Component {
-  render() {
-    return (
-      <div className="lds-grid">
-        <div />
-        <div />
-        <div />
-      </div>
-    );
-  }
-}
+const MiniLoader = () => {
+  return (
+    <div className="lds-grid">
+      <div />
+      <div />
+      <div />
+    </div>
+  );
+};
+
+export default MiniLoader;

@@ -7,6 +7,7 @@ import Badge from '../components/Badge';
 import DeleteBadgeModal from '../components/DeleteBadgeModal';
 
 function BadgeDetails(props) {
+  console.log('object', props);
   const badge = props.badge;
 
   return (

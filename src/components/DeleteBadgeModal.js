@@ -2,7 +2,7 @@ import React from 'react';
 
 import Modal from './Modal';
 
-function DeleteBadgeModal(props) {
+const DeleteBadgeModal = (props) => {
   return (
     <Modal isOpen={props.isOpen} onClose={props.onClose}>
       <div className="DeleteBadgeModal">
@@ -20,6 +20,6 @@ function DeleteBadgeModal(props) {
       </div>
     </Modal>
   );
-}
+};
 
 export default DeleteBadgeModal;

@@ -9,7 +9,7 @@ import BadgeDetails from '../pages/BadgeDetailsContainer';
 import BadgeEdit from '../pages/BadgeEdit';
 import NotFound from '../pages/NotFound';
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <Layout>
@@ -24,6 +24,6 @@ function App() {
       </Layout>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

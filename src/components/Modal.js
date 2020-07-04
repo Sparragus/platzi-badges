@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import './styles/Modal.css';
 
-function Modal(props) {
+const Modal = (props) => {
   if (!props.isOpen) {
     return null;
   }
@@ -20,6 +20,6 @@ function Modal(props) {
     </div>,
     document.getElementById('modal')
   );
-}
+};
 
 export default Modal;
