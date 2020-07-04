@@ -1,37 +1,18 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 
 import './styles/BadgesList.css';
-import Gravatar from './Gravatar';
+import BadgesListItem from './BadgesListItem';
 
-class BadgesListItem extends React.Component {
-  render() {
-    return (
-      <div className="BadgesListItem">
-        <Gravatar
-          className="BadgesListItem__avatar"
-          email={this.props.badge.email}
-        />
+//Custom hooks
+const useSearchBadges = (badges) => {
+  //UseState
+  const [query, setQuery] = useState('');
+  const [filteredBadges, setFilteredBadges] = useState(badges);
 
-        <div>
-          <strong>
-            {this.props.badge.firstName} {this.props.badge.lastName}
-          </strong>
-          <br />@{this.props.badge.twitter}
-          <br />
-          {this.props.badge.jobTitle}
-        </div>
-      </div>
-    );
-  }
-}
-
-function useSearchBadges(badges) {
-  const [query, setQuery] = React.useState('');
-  const [filteredBadges, setFilteredBadges] = React.useState(badges);
-
-  React.useMemo(() => {
-    const result = badges.filter(badge => {
+  //UseMemo
+  useMemo(() => {
+    const result = badges.filter((badge) => {
       return `${badge.firstName} ${badge.lastName}`
         .toLowerCase()
         .includes(query.toLowerCase());
@@ -41,9 +22,9 @@ function useSearchBadges(badges) {
   }, [badges, query]);
 
   return { query, setQuery, filteredBadges };
-}
+};
 
-function BadgesList(props) {
+const BadgesList = (props) => {
   const badges = props.badges;
 
   const { query, setQuery, filteredBadges } = useSearchBadges(badges);
@@ -57,7 +38,7 @@ function BadgesList(props) {
             type="text"
             className="form-control"
             value={query}
-            onChange={e => {
+            onChange={(e) => {
               setQuery(e.target.value);
             }}
           />
@@ -79,14 +60,14 @@ function BadgesList(props) {
           type="text"
           className="form-control"
           value={query}
-          onChange={e => {
+          onChange={(e) => {
             setQuery(e.target.value);
           }}
         />
       </div>
 
       <ul className="list-unstyled">
-        {filteredBadges.map(badge => {
+        {filteredBadges.map((badge) => {
           return (
             <li key={badge.id}>
               <Link
@@ -101,6 +82,6 @@ function BadgesList(props) {
       </ul>
     </div>
   );
-}
+};
 
 export default BadgesList;
