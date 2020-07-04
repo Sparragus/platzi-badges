@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import './styles/BadgeNew.css';
+import './styles/BadgeEdit.css';
 import header from '../images/platziconf-logo.svg';
 import Badge from '../components/Badge';
 import BadgeForm from '../components/BadgeForm';
 import PageLoading from '../components/PageLoading';
 import api from '../api';
 
-const BadgeNew = (props) => {
+const BadgeEdit = (props) => {
+  //UseState hooks
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [form, setForm] = useState({
@@ -18,8 +19,31 @@ const BadgeNew = (props) => {
     twitter: '',
   });
 
+  //UseEffect hooks
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  //Methodes
+  const fetchData = async (e) => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const data = await api.badges.read(props.match.params.badgeId);
+      setLoading(false);
+      setForm(data);
+    } catch (error) {
+      setLoading(false);
+      setError(error);
+    }
+  };
+
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -28,8 +52,7 @@ const BadgeNew = (props) => {
     setError(null);
 
     try {
-      await api.badges.create(form);
-      setLoading(false);
+      await api.badges.update(props.match.params.badgeId, form);
 
       props.history.push('/badges');
     } catch (error) {
@@ -44,9 +67,9 @@ const BadgeNew = (props) => {
 
   return (
     <React.Fragment>
-      <div className="BadgeNew__hero">
+      <div className="BadgeEdit__hero">
         <img
-          className="BadgeNew__hero-image img-fluid"
+          className="BadgeEdit__hero-image img-fluid"
           src={header}
           alt="Logo"
         />
@@ -66,7 +89,7 @@ const BadgeNew = (props) => {
           </div>
 
           <div className="col-6">
-            <h1>New Attendant</h1>
+            <h1>Edit Attendant</h1>
             <BadgeForm
               onChange={handleChange}
               onSubmit={handleSubmit}
@@ -80,4 +103,4 @@ const BadgeNew = (props) => {
   );
 };
 
-export default BadgeNew;
+export default BadgeEdit;
