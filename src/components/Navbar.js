@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import './styles/Navbar.css'
 import confLogo from '../images/badge-header.svg';
 
-class Navbar extends React.Component {
+class Navbar extends Component {
 
   render() {
     return (
