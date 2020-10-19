@@ -8,5 +8,10 @@ import Badge from './components/Badge';
 const container = document.getElementById('app');
 
 ReactDOM.render(
-  <Badge />, 
+  <Badge 
+  avatar="https://www.gravatar.com/avatar?d=identicon"
+  firstName="Aline" 
+  lastName="De Castro Herculano" 
+  jobTitle = "Fullstack Engineer" 
+  twitter="yajairo87" />, 
   container);
