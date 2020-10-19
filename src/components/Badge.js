@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './styles/Badge.css';
 import confLogo from '../images/badge-header.svg';
 
-class Badge extends React.Component {
+class Badge extends Component {
   render() {
 
     const { avatar, firstName, lastName, jobTitle, twitter } = this.props;
