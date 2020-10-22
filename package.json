@@ -16,7 +16,8 @@
     "bootstrap": "^4.5.3",
     "react": "16.8.3",
     "react-dom": "16.8.3",
-    "react-scripts": "^3.4.3"
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.4"
   },
   "devDependencies": {
     "faker": "^4.1.0",

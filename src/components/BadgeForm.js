@@ -14,7 +14,7 @@ class BadgeForm extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <h1>New Attendant</h1>
 
         <form onSubmit={this.handleSubmit}>
@@ -75,8 +75,7 @@ class BadgeForm extends Component {
 
         <button onClick={this.handleClick} className="btn btn-primary">Save</button>
         </form>
-
-      </div>
+      </>
     )
   }
 
