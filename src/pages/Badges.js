@@ -9,9 +9,14 @@ import data from '../fixtures/data';
 
 class Badges extends Component {
 
-  state = {
-    data
+  constructor(props) {
+    super(props);
+    this.state = {
+      data
+    }
   }
+
+  
   render() {
     return (
       <>
