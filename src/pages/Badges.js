@@ -4,20 +4,43 @@ import { Link } from 'react-router-dom';
 import './styles/Badges.css';
 import confLogo from '../images/badge-header.svg';
 import BadgeList from '../components/BadgesList';
-
-import data from '../fixtures/data';
+import api from '../api';
 
 class Badges extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      data
+      loading: true,
+      error: null,
+      data : undefined
     }
   }
 
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData = async () => {
+    this.setState( {
+      loading: true,
+      error: null
+    });
+
+    try {
+      const data = await api.badges.list();
+      this.setState({ loading: false, data });
+    } catch (error) {
+      this.setState({ loading: false, error });
+    }
+  }
   
   render() {
+
+    if (this.state.loading === true) {
+        return 'Loading...';
+    }
+
     return (
       <>
         <div className="Badges">
