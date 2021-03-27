@@ -21,5 +21,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 const container = document.getElementById('app');
 
-ReactDOM.render(<Badge />, container);
+ReactDOM.render(<Badge 
+    firstName="Jose" 
+    lastName="Brusa" 
+    jobTitle="Frontend Engineer" 
+    twitter="brusa_jose" 
+    avatarUrl="https://s.gravatar.com/avatar/4133e43f063b9e916b24835664fa19e4?s=80"
+    />, 
+    container);
 
