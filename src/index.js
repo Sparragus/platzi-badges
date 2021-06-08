@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Badge from './components/Badge'
-
+import Badge from './components/Badge';
+// import "bootstrap/dist/css/bootstrap.css"
 
 //para poder tener este elemento asi es de vital importancia importar import React from 'react' esta es la unica forma de poder hacerlo de lo contrario obtendre error 
 const container = document.getElementById('app');
