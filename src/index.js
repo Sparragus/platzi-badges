@@ -1,31 +1,76 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import Badge from './components/Badge'
+
 
 //para poder tener este elemento asi es de vital importancia importar import React from 'react' esta es la unica forma de poder hacerlo de lo contrario obtendre error 
 const container = document.getElementById('app');
 
+ReactDOM.render(< Badge />, container) //asegurarnos de siempre darle un elemento a ReactDOM.render 
+
 /*
-const Welcome = props => <h1>Hi, {props.name}</h1>;
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
+
+    // Este enlace es necesario para hacer que `this` funcione en el callback
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
+    }));
+  }
+
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        {this.state.isToggleOn ? 'ON' : 'OFF'}
+      </button>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Toggle />,container);
+
+const Welcome = props => <h1>Hi {props.name}</h1>;
 
 const Clock = () => {
+  const [name, setName] = React.useState('')  
+  const printName = e =>  setName(e.target.value)
+
   return  (
   <div>
-    <input placeholder="Write your name"></input>
-    <Welcome name= "Carlos"/> 
+    <input placeholder="Write your name"  onChange={printName} value={name} />
+    <Welcome name={name}/> 
     <h2>It is {new Date().toLocaleTimeString()}.</h2>
-  </div>)
+    <img src={"https://i.blogs.es/594843/chrome/450_1000.jpg"} ></img>
+  </div>
+  
+  
+)
 
 }
 
 const tick = () => {
     ReactDOM.render(<Clock />, container);
-  }
+}
   
-  setInterval(tick, 1000);
-  // ReactDOM.render(__qué__, __dónde__);
+setInterval(tick, 1000);
+// ReactDOM.render(__qué__, __dónde__);
 
-*/
+
+// const jsx = <h1>Hola {"Los elementos dentro de estas llaves nos permiten introducir expresiones de js"}</h1>
+//las expresiones en js se interpretn y se evaluan. 
+//los valores que sean falsos como el 0,null,undefined etc, no se mostraran 
+
+// Los componentes deben de vivir en su propio archivo 
+
+ 
 
 class Clock extends React.Component {
   constructor(props) {
@@ -62,3 +107,4 @@ class Clock extends React.Component {
 
 ReactDOM.render(
   <Clock />,container);
+*/
