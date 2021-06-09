@@ -1,6 +1,7 @@
 import React from 'react';
 
 import LogoSVG from '../images/badge-header.svg';
+// import twitterSVG from '../icons/twitter-icon.svg'
 import "./styles/Badge.css"
 
 class Badge extends React.Component {
@@ -12,12 +13,12 @@ class Badge extends React.Component {
 
             <div className="badge__section-name">
                 <img src="https://es.gravatar.com/avatar?d=identicon" alt="Avatar" className="badge__avatar" />
-                <h1>CARLOS <br/> VARGAS </h1>
+                <h1>{firstName} <br/> {lastName} </h1>
             </div>
 
             <div className="badge__section-info">
-                <p>Frontend Engineer</p>
-                <p>@nc_cvargas</p>
+                <h3>Frontend Engineer</h3>
+                <div> @nc_cvargas</div>
             </div>
 
             <div className="badge__footer"> #platziconf</div>
@@ -27,4 +28,4 @@ class Badge extends React.Component {
     }
 } 
 
-export default Badge; 
+export default Badge;  //Tenemos que asegurarnos de exportar este componente
