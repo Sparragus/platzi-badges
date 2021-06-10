@@ -15,6 +15,7 @@ body {
 h1 {
   font-family: 'Anton', sans-serif;
   letter-spacing: 1px;
+  color: black;
 }
 
 a.link-unstyled {

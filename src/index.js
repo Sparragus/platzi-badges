@@ -1,20 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Badge from './components/Badge';
+import 'bootstrap/dist/css/bootstrap.css'
 import "./global.css"
-// import "bootstrap/dist/css/bootstrap.css"
+import BadgeNews from './pages/badgeNew';
 
 //para poder tener este elemento asi es de vital importancia importar import React from 'react' esta es la unica forma de poder hacerlo de lo contrario obtendre error 
 const container = document.getElementById('app');
 
-ReactDOM.render(< Badge
-   firstName="Kasam"
-   lastName="Vargas"
-    />, container) //asegurarnos de siempre darle un elemento a ReactDOM.render 
 
+ReactDOM.render(< BadgeNews />, container)
 /*
-class Toggle extends React.Component {
-  constructor(props) {
+ReactDOM.render(, container) //asegurarnos de siempre darle un elemento a ReactDOM.render 
+  
+  class Toggle extends React.Component {
+    constructor(props) {
     super(props);
     this.state = {isToggleOn: true};
 

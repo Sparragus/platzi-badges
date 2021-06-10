@@ -6,19 +6,29 @@ import "./styles/Badge.css"
 
 class Badge extends React.Component {
     render() {
+
+        const {
+            firstName,
+            lastName,
+            jobTitle,
+            twitter,
+            avatarUrl,
+        } = this.props;
+
+
         return <div className="badge">
             <div className="badge__header">
                 <img src={LogoSVG} alt="Logo de la conferencia" />
             </div>
 
             <div className="badge__section-name">
-                <img src="https://es.gravatar.com/avatar?d=identicon" alt="Avatar" className="badge__avatar" />
+                <img src={avatarUrl} alt="Avatar" className="badge__avatar" />
                 <h1>{firstName} <br/> {lastName} </h1>
             </div>
 
             <div className="badge__section-info">
-                <h3>Frontend Engineer</h3>
-                <div> @nc_cvargas</div>
+                <h3 className="text-dark">{jobTitle}</h3>
+                <div className="text-dark"> @{twitter}</div>
             </div>
 
             <div className="badge__footer"> #platziconf</div>
