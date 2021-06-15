@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css'
 import "./global.css"
-import BadgeNews from './pages/badgeNew';
+// import BadgeNews from './pages/badgeNew';
+import Badges from './pages/Badges'
 
 //para poder tener este elemento asi es de vital importancia importar import React from 'react' esta es la unica forma de poder hacerlo de lo contrario obtendre error 
 const container = document.getElementById('app');
 
 
-ReactDOM.render(< BadgeNews />, container)
+ReactDOM.render(< Badges />, container)
 /*
 ReactDOM.render(, container) //asegurarnos de siempre darle un elemento a ReactDOM.render 
   
