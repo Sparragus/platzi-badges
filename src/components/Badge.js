@@ -1,7 +1,7 @@
 import React from 'react';
 
 import LogoSVG from '../images/badge-header.svg';
-// import twitterSVG from '../icons/twitter-icon.svg'
+import twitterSVG from '../icons/twitter-icon.svg'
 import "./styles/Badge.css"
 
 class Badge extends React.Component {
@@ -28,7 +28,10 @@ class Badge extends React.Component {
 
             <div className="badge__section-info">
                 <h3 className="text-dark">{jobTitle}</h3>
-                <div className="text-dark"> @{twitter}</div>
+                <div className="d-flex align-items-center justify-content-center">
+                    <img src={twitterSVG} alt="Logo twitter" className="badge__logo-twitter me-1" />
+                    <div className="text-dark"> @{twitter}</div>
+                </div>
             </div>
 
             <div className="badge__footer"> #platziconf</div>
