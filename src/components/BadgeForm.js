@@ -1,18 +1,11 @@
 import React from 'react';
 
 class BadgeForm extends React.Component {
-
-  handleChange = e => {
-    this.setState({FirstName: e.target.value})
-  }
-
-  handleClick = () => {
-    console.log('Button was clicked');
-  };
-
+  // state = {}
+  // handleChange = e => this.setState({[e.target.name]: e.target.value})
   handleSubmit = e => {
     e.preventDefault();
-    console.log('Form was submitted');
+    console.log(this.state);
   };
 
   render() {
@@ -20,16 +13,61 @@ class BadgeForm extends React.Component {
       <div>
         <h1>New Attendant</h1>
 
-        <form>
-          <div className="form-group">
-            <label>First Name</label>
+        <form onSubmit={this.handleSubmit}>
+          <div className="form-group ">
+            <label className="my-1">First Name</label>
             <input
               className="form-control"
               type="text"
               name="firstName"
               placeholder="Inroduce your name"
-              onChange={this.handleChange}
+              onChange={this.props.onChange}
+              value={this.props.formValues.firstName}
             />
+          </div>
+          <div className="form-group">
+            <label className="my-1">Last Name</label>
+            <input
+              className="form-control"
+              type="text"
+              name="lastName"
+              placeholder="Inroduce your last name"
+              onChange={this.props.onChange}
+              value={this.props.formValues.lastName}
+            />
+          </div>
+          <div className="form-group">
+            <label className="my-1">Email</label>
+            <input
+              className="form-control"
+              type="text"
+              name="email"
+              placeholder="name@example.com"
+              onChange={this.props.onChange}
+              value={this.props.formValues.email}
+            />
+          </div>
+          <div className="form-group">
+            <label className="my-1">Job Tittle</label>
+            <input
+              className="form-control"
+              type="text"
+              name="jobtittle"
+              placeholder="Developer web"
+              onChange={this.props.onChange}
+              value={this.props.formValues.jobtittle}
+            />
+          </div>
+          <div className="form-group">
+            <label className="my-1">Twitter</label>
+              <input 
+                type="text"
+                class="form-control"
+                placeholder="@username"
+                name="twitter"
+                onChange={this.props.onChange}
+                value={this.props.formValues.twitter}
+              />
           </div>
           <button className="btn btn-primary mt-2">Save</button>
         </form>
@@ -39,3 +77,5 @@ class BadgeForm extends React.Component {
 }
 
 export default BadgeForm;
+
+// al agregarle al input el "value" lo que hacemos es que pase de "no controlado" a "controlado" esto nos sirve debido que a medida qu nuestra aplicacion vaya creciendo la informacion de los inputs se guarda en 2 lugares distintos a la vez y por ese motivo es mejor tener los inputs como "controlados"

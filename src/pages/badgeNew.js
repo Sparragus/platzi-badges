@@ -7,6 +7,26 @@ import BadgeForm from '../components/BadgeForm';
 
 
 class BadgeNews extends React.Component {
+
+    //este es el nivel de pagina aqui inicializamos un state vacio y se le añade una propiedad llamada form que tambien tiene un objeto vacio 
+    state = { form: {
+        firstName:"",
+        lastName:"",
+        email:"",
+        jobtittle:"",
+        twitter:"",
+    } }
+
+    //creamos un evento llamado handleChange
+    handleChange = e => {
+        this.setState({
+            form: {
+                ...this.state.form,
+                [e.target.name]: e.target.value
+            }
+        })
+    }
+
     render() {
         return (
             <div>
@@ -19,15 +39,16 @@ class BadgeNews extends React.Component {
                     <div className="row">
                         <div className="col-6">
                         < Badge
-                            firstName="Carlos"
+                            {...this.state.form}
                             avatarUrl="https://es.gravatar.com/avatar?d=identicon"
-                            lastName="Vargas"
-                            jobTitle="Frontend Engineer"
-                            twitter="nc_vargas"
                             />
                         </div>
                         <div className="col-6">
-                        <BadgeForm />
+                            {/* aqui pasamos como props de BadgeForm a handleChange */}
+                        <BadgeForm 
+                            onChange={this.handleChange} 
+                            formValues={this.state.form}
+                        />
                         </div>
                     </div>
                 </div>
