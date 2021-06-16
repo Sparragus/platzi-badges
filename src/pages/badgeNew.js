@@ -13,7 +13,7 @@ class BadgeNews extends React.Component {
         firstName:"",
         lastName:"",
         email:"",
-        jobtittle:"",
+        jobTitle:"",
         twitter:"",
     } }
 

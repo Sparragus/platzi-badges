@@ -55,7 +55,7 @@ class BadgeForm extends React.Component {
               name="jobtittle"
               placeholder="Developer web"
               onChange={this.props.onChange}
-              value={this.props.formValues.jobtittle}
+              value={this.props.formValues.jobTitle}
             />
           </div>
           <div className="form-group">
