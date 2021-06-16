@@ -32,3 +32,10 @@
 .Badges__input{
   width: 60%;
 }
+
+.Badges__home {
+  width: 100vw;
+  height: 100vh;
+  background: url('../../images/stars.svg'), #1B1B25;
+  background-repeat: repeat;
+}

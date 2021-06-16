@@ -20,7 +20,7 @@ class BadgeForm extends React.Component {
               className="form-control"
               type="text"
               name="firstName"
-              placeholder="Inroduce your name"
+              // placeholder="Inroduce your name"
               onChange={this.props.onChange}
               value={this.props.formValues.firstName}
             />
@@ -31,7 +31,7 @@ class BadgeForm extends React.Component {
               className="form-control"
               type="text"
               name="lastName"
-              placeholder="Inroduce your last name"
+              // placeholder="Inroduce your last name"
               onChange={this.props.onChange}
               value={this.props.formValues.lastName}
             />
@@ -42,18 +42,18 @@ class BadgeForm extends React.Component {
               className="form-control"
               type="text"
               name="email"
-              placeholder="name@example.com"
+              // placeholder="name@example.com"
               onChange={this.props.onChange}
               value={this.props.formValues.email}
             />
           </div>
           <div className="form-group">
-            <label className="my-1">Job Tittle</label>
+            <label className="my-1">Job Title</label>
             <input
               className="form-control"
               type="text"
-              name="jobtittle"
-              placeholder="Developer web"
+              name="jobTitle"
+              // placeholder="Developer web"
               onChange={this.props.onChange}
               value={this.props.formValues.jobTitle}
             />
@@ -63,7 +63,7 @@ class BadgeForm extends React.Component {
               <input 
                 type="text"
                 class="form-control"
-                placeholder="@username"
+                // placeholder="@username"
                 name="twitter"
                 onChange={this.props.onChange}
                 value={this.props.formValues.twitter}

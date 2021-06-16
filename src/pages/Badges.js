@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
 import confLogo from '../images/badge-header.svg'
 import BadgesList from '../components/BadgesList'
+import { Link, } from 'react-router-dom' 
 import './styles/Badge.css'
 
 class Badges extends React.Component{
@@ -40,9 +40,7 @@ class Badges extends React.Component{
 
   render(){
     return (
-      <div>  
-        <Navbar />
-
+      <React.Fragment>  
         <div className="Badges">
           <div className="Badges__hero">
             <div className="Badges__container">
@@ -57,9 +55,10 @@ class Badges extends React.Component{
 
         <div className="Badges__container">
           <div className="Badges__buttons">
-            <a href="/badges/new" className="btn btn-primary">
+            {/* utilizamos link para que no recargue la pagina completa y a diferencia del elemento ancla en lugar de utilizar href utliza to para especificar a que direccion se movera  */}
+            <Link to="/badges/new" className="btn btn-primary">
               New Bagdes 
-            </a>
+            </Link>
           </div>
           
           <div>
@@ -71,9 +70,12 @@ class Badges extends React.Component{
         </div>
 
 
-      </div>
+      </React.Fragment>
     )
   }
 }
 
 export default Badges
+
+
+// React.Fragment es una herramienta la cual te ayuda a reemplazar esos div vacios que no reciben props, ni className ni ningun otro elemento a utilizar entonces esta herramienta los reemplaza y a la hor de renderizar ya no aparece el React.Fragment ya que solo es un elemento imaginario par el DOM 
