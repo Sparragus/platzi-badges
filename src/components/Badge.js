@@ -20,11 +20,11 @@ class Badge extends React.Component {
 
             <div className="badge__section-name">
                 <img src={avatarUrl} alt="Avatar" className="badge__avatar" />
-                <p className="text-dark fs-2 lh-base">{firstName} <br/> {lastName} </p>
+                <p className="text-dark fs-4 lh-base">{firstName} <br/> {lastName} </p>
             </div>
 
             <div className="badge__section-info">
-                <p className="text-dark fs-3 fw-normal">{jobTitle}</p>
+                <p className="text-dark fs-5 fw-normal">{jobTitle}</p>
                 <div className="d-flex align-items-center justify-content-center">
                     <img src={twitterSVG} alt="Logo twitter" className="badge__logo-twitter me-1" />
                     <div className="text-primary">{twitter}</div>
