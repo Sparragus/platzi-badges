@@ -56,7 +56,7 @@ class Badges extends React.Component{
         <div className="Badges__container">
           <div className="Badges__buttons">
             {/* utilizamos link para que no recargue la pagina completa y a diferencia del elemento ancla en lugar de utilizar href utliza to para especificar a que direccion se movera  */}
-            <Link to="/badges/new" className="btn btn-primary">
+            <Link to="/Home/Badges/new" className="btn btn-primary">
               New Bagdes 
             </Link>
           </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import LogoSVG from '../images/badge-header.svg';
 import twitterSVG from '../icons/twitter-icon.svg'
 import "./styles/Badge.css"
@@ -16,19 +15,19 @@ class Badge extends React.Component {
 
         return <div className="badge">
             <div className="badge__header">
-                <img src={LogoSVG} alt="Logo de la conferencia" />
+                <img src={LogoSVG} alt="Conference logo" />
             </div>
 
             <div className="badge__section-name">
                 <img src={avatarUrl} alt="Avatar" className="badge__avatar" />
-                <h1>{firstName} <br/> {lastName} </h1>
+                <p className="text-dark fs-2 lh-base">{firstName} <br/> {lastName} </p>
             </div>
 
             <div className="badge__section-info">
-                <h3 className="text-dark">{jobTitle}</h3>
+                <p className="text-dark fs-3 fw-normal">{jobTitle}</p>
                 <div className="d-flex align-items-center justify-content-center">
                     <img src={twitterSVG} alt="Logo twitter" className="badge__logo-twitter me-1" />
-                    <div className="text-dark">{twitter}</div>
+                    <div className="text-primary">{twitter}</div>
                 </div>
             </div>
 

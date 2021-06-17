@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Switch ,Route, Redirect } from 'react-router-dom';
+import Home from '../pages/Home'
 import BadgeNew from '../pages/badgeNew'  
 import Badges from '../pages/Badges'
 import NotFound from '../pages/NotFound'
-import Layout from './Layout';
-import Home from '../pages/Home';
+import Layout from './Layout'
 
 function App() {
   return (

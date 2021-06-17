@@ -8,10 +8,10 @@ class Navbar extends React.Component {
         return (
             <div className="Navbar">
                 <div className="container-fluid">
-                    <Link to ="/" cLinkassName="Navbar__brand text-decoration-none" >
+                    <Link to ="/" cLinkassName="Navbar__brand text-decoration-none" style={{ textDecoration: 'none', color: "#fff" }} >
                         <img src={logo} alt="logo" className="Navbar__brand-logo" /> 
-                        <span className="fw-light me-1">Platzi</span>
-                        <span className="fw-bold">Conf</span>
+                        <span className="fw-light me-1">Conference</span>
+                        <span className="fw-bold">badges</span>
                     </Link>
                 </div>
             </div>

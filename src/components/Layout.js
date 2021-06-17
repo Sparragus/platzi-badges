@@ -1,11 +1,10 @@
 import React from 'react'
-import Navbar from './Navbar' 
-import Home from '../pages/Home'
+import Navbar from './Navbar'
 
 function Layout(props) {
   return (
     <React.Fragment>
-      {/* <Navbar />  */}
+      <Navbar /> 
       {props.children}
     </React.Fragment>
   )

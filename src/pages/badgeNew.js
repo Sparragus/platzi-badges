@@ -9,11 +9,11 @@ class BadgeNews extends React.Component {
 
     //este es el nivel de pagina aqui inicializamos un state vacio y se le añade una propiedad llamada form que tambien tiene un objeto vacio 
     state = { form: {
-        firstName:"",
-        lastName:"",
-        email:"",
-        jobTitle:"",
-        twitter:"",
+        firstName:"FIRST_NAME",
+        lastName:"LAST_NAME",
+        email:"name@example.com",
+        jobTitle:"Job_Title",
+        twitter:"@Twitter",
     } }
 
     //creamos un evento llamado handleChange
