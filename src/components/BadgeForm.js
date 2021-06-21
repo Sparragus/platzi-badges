@@ -13,7 +13,7 @@ class BadgeForm extends React.Component {
       <React.Fragment>
         <p className="fs-3 fw-bold text-center text-light " style={{letterSpacing: "-1px"}}>NEW  ATTENDANT</p>
 
-        <form onSubmit={this.handleSubmit} className="shadow p-3 mb-5 bg-body rounded-3 mx-auto" style={{maxWidth: "300px", minWidth: "120px", width: "80%"}}>
+        <form onSubmit={this.handleSubmit} className="shadow p-3 mb-5 bg-body rounded-3 mx-auto" style={{width: "280px"}}>
           <div className="form-group ">
             <label className="my-1">First Name</label>
             <input
