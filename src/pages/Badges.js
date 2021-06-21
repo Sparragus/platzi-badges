@@ -3,11 +3,14 @@ import confLogo from "../images/badge-header.svg";
 import BadgesList from "../components/BadgesList";
 import { Link } from "react-router-dom";
 import "./styles/Badge.css";
+import api from '../api'
+import NotFound from './NotFound'
 
 class Badges extends React.Component {
-  //ciclo de vida de un componente
-  // debemos recordar que el constructor recibe props los cuales estaremos utilizando luego para crear nuestra super clase
-  //En el constructor es el mejor lugar para inicializar el state pero no lo puedo llamar solo como state tiene que ser this.state
+  /*
+  ciclo de vida de un componente
+  debemos recordar que el constructor recibe props los cuales estaremos utilizando luego para crear nuestra super clase
+  En el constructor es el mejor lugar para inicializar el state pero no lo puedo llamar solo como state tiene que ser this.state
 
   constructor(props) {
     super(props);
@@ -17,68 +20,74 @@ class Badges extends React.Component {
       data: [],
     };
   }
-
   componentDidMount() {
-    console.log("3. componentDidMount");
     this.timeoutId = setTimeout(() => {
       this.setState({
-        data: [
-          {
-            id: "2de30c42-9deb-40fc-a41f-05e62b5939a7",
-            firstName: "Freda",
-            lastName: "Grady",
-            email: "Leann_Berge@gmail.com",
-            jobTitle: "Legacy Brand Director",
-            twitter: "FredaGrady22221-7573",
-            avatarUrl:
-              "https://www.gravatar.com/avatar/f63a9c45aca0e7e7de0782a6b1dff40b?d=identicon",
-          },
-          {
-            id: "d00d3614-101a-44ca-b6c2-0be075aeed3d",
-            firstName: "Major",
-            lastName: "Rodriguez",
-            email: "Ilene66@hotmail.com",
-            jobTitle: "Human Research Architect",
-            twitter: "ajorRodriguez61545",
-            avatarUrl:
-              "https://www.gravatar.com/avatar/d57a8be8cb9219609905da25d5f3e50a?d=identicon",
-          },
-          {
-            id: "63c03386-33a2-4512-9ac1-354ad7bec5e9",
-            firstName: "Daphney",
-            lastName: "Torphy",
-            email: "Ron61@hotmail.com",
-            jobTitle: "National Markets Officer",
-            twitter: "DaphneyTorphy96105",
-            avatarUrl:
-              "https://www.gravatar.com/avatar/e74e87d40e55b9ff9791c78892e55cb7?d=identicon",
-          },
-        ],
+        datos 
       });
-    }, 3000);
+    }, 1000);
   }
-
-  //El componentDidUpdate recibe 2 argumentos el primero es los props que teniamos anteriormente y el otro es el state que teniamos antes
+  El componentDidUpdate recibe 2 argumentos el primero es los props que teniamos anteriormente y el otro es el state que teniamos antes
   componentDidUpdate(prevProps, prevState) {
     console.log("5 componentDidUpdate()");
     console.log({
       prevProps: prevProps,
       PrevState: prevState,
     });
-
+  
     console.log({
       props: this.props,
       state: this.state,
     });
   }
-
+  
   componentWillUnmount() {
     console.log(" 6. componentWillUnmount()");
     clearTimeout(this.timeoutId);
   }
+*/
+
+  state = {
+    loading: true,
+    error: null,
+    data: undefined,
+  }
+  
+
+  componentDidMount () {
+    this.fetchData()
+  }
+
+  fetchData=  async() => {
+    this.setState({loading:true, error: null,})
+
+    try {
+      const data = await api.badges.list()
+      this.setState ({loading:false, data:data })
+    } catch (error) {
+      this.setState ({loading:false, error: error, })
+    }
+
+  }
 
   render() {
-    console.log("2/4. render");
+
+    if (this.state.loading === true) {
+      return (
+        <div className="d-flex align-items-center justify-content-center mt-5" >
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div> 
+      )
+    }
+
+    if (this.state.error) {
+      return (
+        <NotFound />
+      )
+    }
+    
 
     return (
       <React.Fragment>
@@ -102,7 +111,7 @@ class Badges extends React.Component {
           <div className="Badges__buttons">
             {/* utilizamos link para que no recargue la pagina completa y a diferencia del elemento ancla en lugar de utilizar href utliza to para especificar a que direccion se movera  */}
             <Link to="/Home/Badges/new" className="btn btn-primary">
-              New Bagdes
+              New Bagde
             </Link>
           </div>
 

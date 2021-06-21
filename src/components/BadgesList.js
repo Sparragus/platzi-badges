@@ -1,9 +1,21 @@
 import React from 'react'
 import logoTwitter from '../icons/twitter-icon.svg'
+import { Link } from 'react-router-dom'
 import "./styles/Badge.css"
 
 class BadgesList extends React.Component {
   render() {
+
+    if (this.props.badges.length === 0) {
+      return (
+        <div className="d-flex flex-column align-items-center justify-content-center">
+          <h3 className="mt-5" >No Badges were found </h3>
+            <Link to="/Home/Badges/new" className="btn btn-primary mt-3">
+              Create new badge 
+            </Link>
+        </div>
+      )
+    }
     return (
       <ul className="list-unstyled">
         {this.props.badges.map(badge => {
