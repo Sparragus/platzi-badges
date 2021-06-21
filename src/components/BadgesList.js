@@ -10,7 +10,7 @@ class BadgesList extends React.Component {
           return(
             <li key={badge.id}>
               <div className="d-flex shadow-sm p-2 mb-3 bg-body rounded-3">
-                  <img src={badge.avatarUrl} alt="Avatar" className="badge__avatar my-auto" style={{width: 65, height:65}} />
+                  <img src={badge.avatarUrl} alt="Avatar" className="badge__avatar my-auto" style={{width: "65px", height:"65px"}} />
                   <div className="d-flex  justify-content-center flex-column" >
                     <p className="fw-bold mb-0">{badge.firstName} {badge.lastName}</p>  
                     <div className="d-flex">

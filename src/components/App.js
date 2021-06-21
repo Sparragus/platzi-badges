@@ -16,7 +16,6 @@ function App() {
           <Route exact path="/Home/Badges/new" component={BadgeNew} />
           <Route exact path="/404" component={NotFound} />
           <Redirect from="*" to="/404" />
-          
         </Switch>
       </Layout>
     </BrowserRouter>

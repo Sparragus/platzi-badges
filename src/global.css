@@ -7,6 +7,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html::-webkit-scrollbar {
+  width: 0px;
+}
+
 body {
   font-family: 'Lato', 'Helvetica Neue', sans-serif;
   background-color: #F4F4F7;

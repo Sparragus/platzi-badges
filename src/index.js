@@ -7,6 +7,7 @@ import App from './components/App'
 //para poder tener este elemento asi es de vital importancia importar import React from 'react' esta es la unica forma de poder hacerlo de lo contrario obtendre error 
 const container = document.getElementById('app');
 
+
 ReactDOM.render(<App />, container)
 
 /*
