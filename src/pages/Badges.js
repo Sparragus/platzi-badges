@@ -47,12 +47,14 @@ class Badges extends React.Component {
   }
 */
 
-  state = {
-    loading: true,
-    error: null,
-    data: undefined,
-  }
-  
+  constructor (props){
+    super(props)
+    this.state = {
+      loading: true,
+      error: null,
+      data: undefined,
+    }
+  }  
 
   componentDidMount () {
     this.fetchData()
@@ -74,19 +76,15 @@ class Badges extends React.Component {
 
     if (this.state.loading === true) {
       return (
-        <div className="d-flex align-items-center justify-content-center mt-5" >
-          <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
+        <div className="d-flex align-items-center justify-content-center" style={{marginTop: "40vh",}} >
+          <div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
         </div> 
       )
     }
 
-    if (this.state.error) {
-      return (
-        <NotFound />
-      )
-    }
+    if (this.state.error) return <NotFound />
     
 
     return (
@@ -115,11 +113,9 @@ class Badges extends React.Component {
             </Link>
           </div>
 
-          <div>
             <div className="Badges__container">
               <BadgesList badges={this.state.data} />
             </div>
-          </div>
         </div>
       </React.Fragment>
     );
