@@ -1,6 +1,7 @@
 import React from "react";
 import confLogo from "../images/badge-header.svg";
 import BadgesList from "../components/BadgesList";
+import PageLoading from '../components/loader'
 import { Link } from "react-router-dom";
 import "./styles/Badge.css";
 import api from '../api'
@@ -66,27 +67,21 @@ class Badges extends React.Component {
     try {
       const data = await api.badges.list()
       this.setState ({loading:false, data:data })
+      
+
     } catch (error) {
       this.setState ({loading:false, error: error, })
     }
 
   }
 
+
+
   render() {
 
-    if (this.state.loading === true) {
-      return (
-        <div className="d-flex align-items-center justify-content-center" style={{marginTop: "40vh",}} >
-          <div className="spinner-border text-primary" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </div> 
-      )
-    }
-
+    if (this.state.loading === true) return <PageLoading /> 
     if (this.state.error) return <NotFound />
     
-
     return (
       <React.Fragment>
         <div className="Badges">
@@ -107,7 +102,7 @@ class Badges extends React.Component {
 
         <div className="Badges__container">
           <div className="Badges__buttons">
-            {/* utilizamos link para que no recargue la pagina completa y a diferencia del elemento ancla en lugar de utilizar href utliza to para especificar a que direccion se movera  */}
+            {/* utilizamos link para que no recargue la pagina completa y a diferencia del elemento ancla en lugar de utilizar "href" utliza "to" para especificar a que direccion se movera  */}
             <Link to="/Home/Badges/new" className="btn btn-primary">
               New Bagde
             </Link>

@@ -17,11 +17,10 @@ class BadgesList extends React.Component {
       )
     }
     return (
-      <ul className="list-unstyled">
+      <ul className="list-unstyled" >
         {this.props.badges.map(badge => {
           return(
-            <li key={badge.id}>
-              <div className="container-fluid d-flex shadow-sm p-2 mb-3 bg-body rounded-3">
+            <li key={badge.id} className="d-flex shadow-sm p-2 mb-3  bg-body rounded-3">
                   <img src={badge.avatarUrl} alt="Avatar" className="badge__avatar my-auto img-fluid"  />
                   <div className="d-flex  justify-content-center flex-column" >
                     <p className="fw-bold mb-0">{badge.firstName} {badge.lastName}</p>  
@@ -31,7 +30,6 @@ class BadgesList extends React.Component {
                     </div>    
                     <p>{badge.jobTitle}</p>     
                   </div>     
-              </div>
             </li>
           )
         })}
