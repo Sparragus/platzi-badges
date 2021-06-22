@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import "./styles/Badge.css";
 import api from '../api'
 import NotFound from './NotFound'
-
 class Badges extends React.Component {
   /*
   ciclo de vida de un componente
@@ -67,8 +66,6 @@ class Badges extends React.Component {
     try {
       const data = await api.badges.list()
       this.setState ({loading:false, data:data })
-      
-
     } catch (error) {
       this.setState ({loading:false, error: error, })
     }
@@ -103,7 +100,7 @@ class Badges extends React.Component {
         <div className="Badges__container">
           <div className="Badges__buttons">
             {/* utilizamos link para que no recargue la pagina completa y a diferencia del elemento ancla en lugar de utilizar "href" utliza "to" para especificar a que direccion se movera  */}
-            <Link to="/Home/Badges/new" className="btn btn-primary">
+            <Link to="/Home/Badges/new" className="btn btn-primary me-4">
               New Bagde
             </Link>
           </div>

@@ -14,9 +14,8 @@
 
 .Badges__container {
   width: 100%;
-  max-width: 580px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 10px;
 }
 
 .Badges__conf-logo {

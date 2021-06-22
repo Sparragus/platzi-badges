@@ -6,3 +6,13 @@
     margin-bottom: 1rem;
     color: #ffffff;
 }
+
+.BadgeNew__form{
+    margin-top: -150px;
+}
+
+@media (max-width: 699px) {
+    .BadgeNew__form{
+        margin: 0;
+    }
+}

@@ -2,7 +2,7 @@
     padding: 0;
     max-width: 400px;
     min-width: 200px;
-    width: 80%;
+    width: 100%;
     background: #ffffff;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
     border-radius: 8px 8px 8px 8px;
@@ -52,4 +52,30 @@
   .badge__logo-twitter{
     width: 20px;
     height: auto;
+  }
+  .badge__li {
+    max-width: 420px;
+    min-width: 320px;
+    width: 48%;
+  }
+  .change-txt {
+    color: white;
+    letter-spacing: -1px;
+  }
+
+  @media (max-width: 480px) {
+    .badge__li{
+      width: 80%;
+    }
+    .badge{
+      width: 90%;
+    }
+  }
+  
+
+  @media (max-width: 699px) {
+    .change-txt {
+      color: black;
+      letter-spacing: 0;
+    }
   }

@@ -33,21 +33,17 @@ class BadgeNews extends React.Component {
                     <img src={header} alt="logo" className="img-fluid" style={{width: "200px", marginLeft: "125px"}} />
 
                 </div>
-                <div className="container">
-                    <div className="row">
-                        <div className="col mt-5">
+                <div className="d-flex align-items-center justify-content-around flex-wrap-reverse ">
                         < Badge
                             {...this.state.form}
                             avatarUrl="https://es.gravatar.com/avatar?d=identicon"
                             />
-                        </div>
-                        <div className="col" style={{marginTop: "-150px"}} >
+                        <div className="BadgeNew__form">
                             {/* aqui pasamos como props de BadgeForm a handleChange */}
                         <BadgeForm 
                             onChange={this.handleChange} 
                             formValues={this.state.form}
                         />
-                        </div>
                     </div>
                 </div>
             </React.Fragment>

@@ -1,6 +1,6 @@
+import { Link } from 'react-router-dom'
 import React from 'react'
 import logoTwitter from '../icons/twitter-icon.svg'
-import { Link } from 'react-router-dom'
 import "./styles/Badge.css"
 
 class BadgesList extends React.Component {
@@ -17,10 +17,10 @@ class BadgesList extends React.Component {
       )
     }
     return (
-      <ul className="list-unstyled" >
+      <ul className="list-unstyled d-flex flex-wrap align-itemns-center justify-content-center" >
         {this.props.badges.map(badge => {
           return(
-            <li key={badge.id} className="d-flex shadow-sm p-2 mb-3  bg-body rounded-3">
+            <li key={badge.id} className=" badge__li d-flex justify-content-center align-items-center shadow-sm p-2 my-1 mx-1  bg-body rounded-3">
                   <img src={badge.avatarUrl} alt="Avatar" className="badge__avatar my-auto img-fluid"  />
                   <div className="d-flex  justify-content-center flex-column" >
                     <p className="fw-bold mb-0">{badge.firstName} {badge.lastName}</p>  
