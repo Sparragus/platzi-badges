@@ -30,12 +30,16 @@ class BadgeNews extends React.Component {
         return (
             <React.Fragment>
                 <div className="BadgeNew__hero">
-                    <img src={header} alt="logo" className="img-fluid" style={{width: "200px", marginLeft: "125px"}} />
+                    <img src={header} alt="logo" className="img-fluid Badge_logo" />
 
                 </div>
-                <div className="d-flex align-items-center justify-content-around flex-wrap-reverse ">
+                <div className="d-flex align-items-center justify-content-around flex-wrap-reverse" style={{maxWidth: "1366px", margin: "0 auto",}}>
                         < Badge
-                            {...this.state.form}
+                            firstName={this.state.form.firstName || 'FIRST_NAME'}
+                            lastName={this.state.form.lastName || 'LAST_NAME'}
+                            twitter={this.state.form.twitter || 'twitter'}
+                            jobTitle={this.state.form.jobTitle || 'JOB_TITLE'}
+                            email={this.state.form.email || 'EMAIL'}
                             avatarUrl="https://es.gravatar.com/avatar?d=identicon"
                             />
                         <div className="BadgeNew__form">

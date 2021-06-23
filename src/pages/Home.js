@@ -9,8 +9,8 @@ function Home() {
   return (
     <React.Fragment>
       <div className="Badges__home ">
-        <div className="d-flex align-items-center justify-content-around" >
-          <div className="d-flex flex-column align-items-center text-light  justify-content-center">
+        <div className="d-flex align-items-center justify-content-around flex-wrap-reverse" >
+          <div className="d-flex flex-column align-items-center text-light justify-content-center position-logo">
             <img src={homeLogo} className="img-fluid Badges__conference-logo" />
             <p className="fw-bold fs-4  mt-3" style={{letterSpacing: "-1px"}}>PRINT YOUR BADGES</p>
             <p className="fw-bold">The easiest way to manage your <br/> conference</p>
@@ -18,7 +18,7 @@ function Home() {
               <Link to="/Home/Badges" className="text-decoration-none text-light">Start now</Link>
             </buttton>
           </div>
-          <img src={platziConf} className="Badges__astronauts-logo " />
+          <img src={platziConf} className="Badges__astronauts-logo" />
         </div>
       </div>
     </React.Fragment>

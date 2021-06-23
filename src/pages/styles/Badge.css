@@ -12,6 +12,7 @@
   align-items: center;
 }
 
+
 .Badges__container {
   width: 100%;
   margin: 0 auto;
@@ -32,6 +33,7 @@
   width: 60%;
 }
 
+
 .Badges__home {
   display: flex;
   width: 100%;
@@ -48,4 +50,29 @@
 
 .Badges__conference-logo {
   width: 80%;
+}
+
+@media (max-width: 1024px) {
+  .img-fluid{
+    max-width: 50%;
+  }
+  .Badges__astronauts-logo {
+    width: 50%;
+    height: 50%;
+  }
+}
+
+@media (max-width: 400px) {
+  .img-fluid{
+    max-width: 70%;
+  }
+  .position-div{
+    margin-top: -50%;
+  }
+  .position-logo{
+    margin-top: -60%;
+  }
+  .Badges__astronauts-logo {
+    margin-top: -38%;
+  }
 }

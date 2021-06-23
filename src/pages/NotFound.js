@@ -5,8 +5,8 @@ import pageNotFound from '../images/astronaut_404.png'
 
 function NotFound() {
   return (
-      <div className="Badges__home align-items-center justify-content-center">
-        <div className="d-flex flex-column align-items-center ">
+      <div className="Badges__home align-items-center justify-content-center flex-wrap-reverse">
+        <div className="d-flex flex-column align-items-center position-div" >
           <h1 className="text-light" >404: Page Not Found</h1>
           <button className="btn btn-primary" >
             <Link to="/Home" className="text-light text-decoration-none" >
@@ -14,7 +14,7 @@ function NotFound() {
             </Link>
           </button>
         </div>
-        <img src={pageNotFound} alt="img" style={{width: "40%"}}   />
+        <img src={pageNotFound} alt="img" className="img-fluid"/>
       </div>    
   )
 }
