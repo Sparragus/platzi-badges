@@ -14,7 +14,11 @@
 
 .Badge_logo{
     max-width: 200px;
-    margin-left: 20%;
+    margin-left: 20vw;
+}
+
+.Badge_logo--space{
+    margin: 0;
 }
 
 @media (max-width: 699px) {
@@ -25,5 +29,4 @@
         max-width: 170px;
         margin: 0 auto;
     }
-
 }

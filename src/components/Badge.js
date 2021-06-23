@@ -29,7 +29,7 @@ class Badge extends React.Component {
                 <p className="text-dark fs-5 fw-normal">{jobTitle}</p>
                 <div className="d-flex align-items-center justify-content-center">
                     <img src={twitterSVG} alt="Logo twitter" className="badge__logo-twitter me-1" />
-                    <div className="text-primary">{twitter}</div>
+                    <div className="text-primary">@{twitter}</div>
                 </div>
             </div>
 

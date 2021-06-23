@@ -1,7 +1,7 @@
 import React from "react";
 import confLogo from "../images/badge-header.svg";
 import BadgesList from "../components/BadgesList";
-import PageLoading from '../components/loader'
+import PageLoading from '../components/Loader'
 import { Link } from "react-router-dom";
 import "./styles/Badge.css";
 import api from '../api'

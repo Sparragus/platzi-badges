@@ -63,19 +63,17 @@
     letter-spacing: -1px;
   }
 
-  @media (max-width: 480px) {
-    .badge__li{
-      width: 80%;
-    }
-    .badge{
-      width: 90%;
-    }
-  }
-  
-
   @media (max-width: 699px) {
     .change-txt {
       color: black;
       letter-spacing: 0;
     }
+    .badge__li{
+      width: 80%;
+    }
+    .badge{
+      width: 90%;
+      margin-bottom: 100px;
+    }
   }
+  

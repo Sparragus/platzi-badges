@@ -60,19 +60,19 @@
     width: 50%;
     height: 50%;
   }
+  
 }
 
-@media (max-width: 400px) {
-  .img-fluid{
-    max-width: 70%;
-  }
+@media (max-width: 563px) {
   .position-div{
-    margin-top: -50%;
+    margin-top: -200px;
   }
   .position-logo{
-    margin-top: -60%;
+    margin-top: -240px ;
   }
   .Badges__astronauts-logo {
-    margin-top: -38%;
+    margin-top: -135px;
+
   }
+
 }

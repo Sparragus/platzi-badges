@@ -3,19 +3,29 @@ import header from '../images/platziconf-logo.svg'
 import './styles/BadgeNews.css'
 import Badge from '../components/Badge';
 import BadgeForm from '../components/BadgeForm';
+import api from '../api'
+import { Link } from 'react-router-dom';
+import PageLoading from '../components/Loader'
 
 
 class BadgeNews extends React.Component {
 
     //este es el nivel de pagina aqui inicializamos un state vacio y se le añade una propiedad llamada form que tambien tiene un objeto vacio 
-    state = { form: {
-        firstName:"",
-        lastName:"",
-        email:"",
-        jobTitle:"",
-        twitter:"",
-    } }
-
+    constructor(props) {
+        super(props)
+        this.state = { 
+            loading: false,
+            error: null, 
+            form: {
+                firstName:"",
+                lastName:"",
+                email:"",
+                jobTitle:"",
+                twitter:"",
+            } 
+        }
+    
+    }
     //creamos un evento llamado handleChange
     handleChange = e => {
         this.setState({
@@ -26,12 +36,29 @@ class BadgeNews extends React.Component {
         })
     }
 
+    handleSubmit = async e => {
+        e.preventDefault()
+        this.setState({ loading: true, error: null })    
+
+        try {
+            await api.badges.create(this.state.form)
+            this.setState({ loading: false, })    
+        } catch (error) {
+            this.setState({ loading: false, error: error })    
+        }
+    }
+
     render() {
+        if(this.state.loading){
+            return <PageLoading />
+        }
+
         return (
             <React.Fragment>
-                <div className="BadgeNew__hero">
-                    <img src={header} alt="logo" className="img-fluid Badge_logo" />
-
+                <div className="BadgeNew__hero">    
+                    <Link to="/Home/Badges/" className="Badge_logo">
+                        <img src={header} alt="logo" className="img-fluid Badge_logo Badge_logo--space "/>
+                    </Link>                
                 </div>
                 <div className="d-flex align-items-center justify-content-around flex-wrap-reverse" style={{maxWidth: "1366px", margin: "0 auto",}}>
                         < Badge
@@ -45,6 +72,7 @@ class BadgeNews extends React.Component {
                             {/* aqui pasamos como props de BadgeForm a handleChange */}
                         <BadgeForm 
                             onChange={this.handleChange} 
+                            onSubmit={this.handleSubmit}
                             formValues={this.state.form}
                         />
                     </div>
