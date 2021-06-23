@@ -40,7 +40,6 @@ class BadgeNews extends React.Component {
                             twitter={this.state.form.twitter || 'twitter'}
                             jobTitle={this.state.form.jobTitle || 'JOB_TITLE'}
                             email={this.state.form.email || 'EMAIL'}
-                            avatarUrl="https://es.gravatar.com/avatar?d=identicon"
                             />
                         <div className="BadgeNew__form">
                             {/* aqui pasamos como props de BadgeForm a handleChange */}

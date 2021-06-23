@@ -2,6 +2,7 @@ import React from 'react';
 import LogoSVG from '../images/badge-header.svg';
 import twitterSVG from '../icons/twitter-icon.svg'
 import "./styles/Badge.css"
+import Gravatar from './Gravatar';
 class Badge extends React.Component {
     render() {
 
@@ -10,7 +11,6 @@ class Badge extends React.Component {
             lastName,
             jobTitle,
             twitter,
-            avatarUrl,
         } = this.props;
 
         return <div className="badge">
@@ -19,10 +19,12 @@ class Badge extends React.Component {
             </div>
 
             <div className="badge__section-name">
-                <img src={avatarUrl} alt="Avatar" className="badge__avatar" />
+                <Gravatar 
+                    className="badge__avatar"  
+                    email={this.props.email}
+                />
                 <p className="text-dark fs-4 lh-base">{firstName} <br/> {lastName} </p>
             </div>
-
             <div className="badge__section-info">
                 <p className="text-dark fs-5 fw-normal">{jobTitle}</p>
                 <div className="d-flex align-items-center justify-content-center">
