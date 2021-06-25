@@ -9,7 +9,7 @@ function NotFound() {
         <div className="d-flex flex-column align-items-center position-div" >
           <h1 className="text-light" >404: Page Not Found</h1>
           <button className="btn btn-primary" >
-            <Link to="/Home" className="text-light text-decoration-none" >
+            <Link to="/" className="text-light text-decoration-none" >
             Go home
             </Link>
           </button>

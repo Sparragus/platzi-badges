@@ -12,10 +12,10 @@ function App() {
     <BrowserRouter>
       <Layout>
         <Switch>
-          <Route exact path="/Home" component={Home} />
-          <Route exact path="/Home/Badges" component={Badges} />
-          <Route exact path="/Home/Badges/new" component={BadgeNew} />
-          <Route exact path="/Home/Badges/:badgeId/edit" component={BadgeEdit} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/Badges" component={Badges} />
+          <Route exact path="/Badges/new" component={BadgeNew} />
+          <Route exact path="/Badges/:badgeId/edit" component={BadgeEdit} />
           <Route exact path="/404" component={NotFound} />
           <Redirect from="*" to="/404" />
         </Switch>

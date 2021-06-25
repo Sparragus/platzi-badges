@@ -15,7 +15,7 @@ function Home() {
             <p className="fw-bold fs-4  mt-3" style={{letterSpacing: "-1px"}}>PRINT YOUR BADGES</p>
             <p className="fw-bold">The easiest way to manage your <br/> conference</p>
             <buttton className="btn btn-primary fw-bold">
-              <Link to="/Home/Badges" className="text-decoration-none text-light">Start now</Link>
+              <Link to="/Badges" className="text-decoration-none text-light">Start now</Link>
             </buttton>
           </div>
           <img src={platziConf} className="Badges__astronauts-logo" />

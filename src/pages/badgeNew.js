@@ -43,7 +43,7 @@ class BadgeNews extends React.Component {
         try {
             await api.badges.create(this.state.form)
             this.setState({ loading: false, })  
-            this.props.history.push('/Home/Badges')
+            this.props.history.push('/Badges')
             
         } catch (error) {
             this.setState({ loading: false, error: error })    
@@ -58,7 +58,7 @@ class BadgeNews extends React.Component {
         return (
             <React.Fragment>
                 <div className="BadgeNew__hero">    
-                    <Link to="/Home/Badges/" className="Badge_logo">
+                    <Link to="/Badges/" className="Badge_logo">
                         <img src={header} alt="logo" className="img-fluid Badge_logo Badge_logo--space "/>
                     </Link>                
                 </div>

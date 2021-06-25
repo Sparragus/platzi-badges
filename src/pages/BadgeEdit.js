@@ -63,7 +63,7 @@ class BadgeEdit extends React.Component {
         try {
             await api.badges.update(this.props.match.params.badgeId,this.state.form)
             this.setState({ loading: false, })  
-            this.props.history.push('/Home/Badges')
+            this.props.history.push('/Badges')
             
         } catch (error) {
             this.setState({ loading: false, error: error })    
@@ -75,9 +75,10 @@ class BadgeEdit extends React.Component {
         this.setState({ loading: false, error: null })    
 
         try {
-            await api.badges.remove(this.props.match.params.badgeId)
+            
+            // await api.badges.remove(this.props.match.params.badgeId)
             this.setState({ loading: false, })  
-            this.props.history.push('/Home/Badges')
+            // this.props.history.push('/Badges')
             console.log("you`ve clicked");    
         } catch (error) {
             this.setState({ loading: false, error: error })    
@@ -93,7 +94,7 @@ class BadgeEdit extends React.Component {
         return (
             <React.Fragment>
                 <div className="BadgeEdit__hero">    
-                    <Link to="/Home/Badges/" className="BadgeEdit_logo">
+                    <Link to="/Badges/" className="BadgeEdit_logo">
                         <img src={header} alt="logo" className="img-fluid BadgeEdit_logo Badge_logo--space "/>
                     </Link>
                     <div className="BadgeEdit__position-action" >

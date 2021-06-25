@@ -10,7 +10,7 @@ class BadgesList extends React.Component {
       return (
         <div className="d-flex flex-column align-items-center justify-content-center">
           <h3 className="mt-5" >No Badges were found </h3>
-            <Link to="/Home/Badges/new" className="btn btn-primary mt-3">
+            <Link to="/Badges/new" className="btn btn-primary mt-3">
               Create new badge 
             </Link>
         </div>
@@ -21,7 +21,7 @@ class BadgesList extends React.Component {
       <ul className="list-unstyled d-flex flex-wrap align-itemns-center justify-content-center" >
         {this.props.badges.map(badge => {
           return(
-            <Link key={badge.id}  to={`/Home/Badges/${badge.id}/edit`} className="badge__li d-flex align-items-center shadow-sm p-2 my-1 mx-1  bg-body rounded-3 text-reset text-decoration-none">
+            <Link key={badge.id}  to={`/Badges/${badge.id}/edit`} className="badge__li d-flex align-items-center shadow-sm p-2 my-1 mx-1  bg-body rounded-3 text-reset text-decoration-none">
               <li className="  d-flex justify-content-center align-items-center    ">
               <Gravatar 
                 className="badge__avatar my-auto img-fluid"
