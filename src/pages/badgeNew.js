@@ -13,7 +13,7 @@ class BadgeNews extends React.Component {
     //este es el nivel de pagina aqui inicializamos un state vacio y se le añade una propiedad llamada form que tambien tiene un objeto vacio 
     constructor(props) {
         super(props)
-        this.state = { 
+        this.state = {
             loading: false,
             error: null, 
             form: {

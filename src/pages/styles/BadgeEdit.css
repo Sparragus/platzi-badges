@@ -13,8 +13,8 @@
 }
 
 /* .BadgeEdit__form{
-    margin-top: -150px;
-} */
+    transition: all 1s ease;
+}  */
 
 .BadgeEdit__position-action{
     display: flex;

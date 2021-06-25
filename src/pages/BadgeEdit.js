@@ -22,7 +22,11 @@ class BadgeEdit extends React.Component {
                 email:"",
                 jobTitle:"",
                 twitter:"",
-            } 
+            },
+            vstyle: {
+                ds: "none",
+            }            
+
         }
     
     }
@@ -66,6 +70,21 @@ class BadgeEdit extends React.Component {
         }
     }
 
+    handleDelete = async e => {
+        e.preventDefault()
+        this.setState({ loading: false, error: null })    
+
+        try {
+            await api.badges.remove(this.props.match.params.badgeId)
+            this.setState({ loading: false, })  
+            this.props.history.push('/Home/Badges')
+            console.log("you`ve clicked");    
+        } catch (error) {
+            this.setState({ loading: false, error: error })    
+        }
+    }
+    
+
     render() {
         if(this.state.loading){
             return <PageLoading />
@@ -80,8 +99,8 @@ class BadgeEdit extends React.Component {
                     <div className="BadgeEdit__position-action" >
                         <p className="text-light text-uppercase  mb-1" style={{letterSpacing: "-1px", fontWeight: 'bold', fontSize: "1.8rem",}}  >{this.state.form.firstName} {this.state.form.lastName}</p>  
                         <div className="d-flex align-items-center justify-content-center" >
-                        <button className="btn btn-primary mx-3" >Edit</button>              
-                        <button className="btn btn-danger mx-3" >Delete</button>  
+                        <button className="btn btn-primary mx-3" onClick={()=> { this.setState({vstyle: {ds: "flex",}}) }} >Edit</button>              
+                        <button className="btn btn-danger mx-3" onClick={this.handleDelete} >Delete</button>  
                         </div>
                     </div>            
                 </div>
@@ -93,7 +112,7 @@ class BadgeEdit extends React.Component {
                             jobTitle={this.state.form.jobTitle || 'JOB_TITLE'}
                             email={this.state.form.email || 'EMAIL'}
                             />
-                        <div className="BadgeEdit__form d-none">
+                        <div className="BadgeEdit__form" style={{display: this.state.vstyle.ds,}}>
                             {/* aqui pasamos como props de BadgeForm a handleChange */}                        
                         <BadgeForm 
                             onChange={this.handleChange} 

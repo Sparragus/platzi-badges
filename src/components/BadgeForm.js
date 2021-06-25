@@ -14,7 +14,7 @@ class BadgeForm extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <form onSubmit={this.props.onSubmit} className="shadow p-3 mb-5 bg-body rounded-3 mx-auto" style={{width: "300px"}}>
+        <form onSubmit={this.props.onSubmit} className="shadow p-3 mb-5 bg-body rounded-3 mx-auto" style={{width: "300px",}}>
           <div className="form-group ">
             <label className="my-1">First Name</label>
             <input
