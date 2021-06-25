@@ -14,8 +14,6 @@ class BadgeForm extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <p className="fs-3 fw-bold text-center change-txt" >NEW  ATTENDANT</p>
-
         <form onSubmit={this.props.onSubmit} className="shadow p-3 mb-5 bg-body rounded-3 mx-auto" style={{width: "300px"}}>
           <div className="form-group ">
             <label className="my-1">First Name</label>
@@ -73,6 +71,13 @@ class BadgeForm extends React.Component {
               />
           </div>
           <button className="btn btn-primary mt-3" style={{width: "100%"}} >Save</button>
+
+          {this.props.error && (
+            <div className="alert alert-danger d-flex align-items-center justify-content-center mt-2" style={{padding:"1%"}}>
+              <p className="text-danger m-0  ">{this.props.error.message}</p>
+            </div>
+          )}
+
         </form>
       </React.Fragment>
     );

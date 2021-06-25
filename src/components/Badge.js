@@ -23,7 +23,7 @@ class Badge extends React.Component {
                     className="badge__avatar"  
                     email={this.props.email}
                 />
-                <p className="text-dark fs-4 lh-base">{firstName} <br/> {lastName} </p>
+                <p className="text-dark fs-4 lh-base text-uppercase m-0">{firstName} <br/> {lastName} </p>
             </div>
             <div className="badge__section-info">
                 <p className="text-dark fs-5 fw-normal">{jobTitle}</p>

@@ -1,6 +1,6 @@
 import React from 'react';
 import header from '../images/platziconf-logo.svg'
-import './styles/BadgeNews.css'
+import './styles/BadgeEdit.css'
 import Badge from '../components/Badge';
 import BadgeForm from '../components/BadgeForm';
 import api from '../api'
@@ -8,13 +8,13 @@ import { Link } from 'react-router-dom';
 import PageLoading from '../components/Loader'
 
 
-class BadgeNews extends React.Component {
+class BadgeEdit extends React.Component {
 
     //este es el nivel de pagina aqui inicializamos un state vacio y se le añade una propiedad llamada form que tambien tiene un objeto vacio 
     constructor(props) {
         super(props)
         this.state = { 
-            loading: false,
+            loading: true,
             error: null, 
             form: {
                 firstName:"",
@@ -26,6 +26,22 @@ class BadgeNews extends React.Component {
         }
     
     }
+
+    componentDidMount() {
+        this.fetchData()
+    }
+
+    fetchData = async e => {
+        this.setState({loading: true, error: null})
+
+        try {
+            const data = await api.badges.read(this.props.match.params.badgeId)
+            this.setState({loading: false, form: data})
+        } catch (error) {
+            this.setState({loading: false, error: error,})
+        }
+    }
+
     //creamos un evento llamado handleChange
     handleChange = e => {
         this.setState({
@@ -41,7 +57,7 @@ class BadgeNews extends React.Component {
         this.setState({ loading: true, error: null })    
 
         try {
-            await api.badges.create(this.state.form)
+            await api.badges.update(this.props.match.params.badgeId,this.state.form)
             this.setState({ loading: false, })  
             this.props.history.push('/Home/Badges')
             
@@ -57,10 +73,17 @@ class BadgeNews extends React.Component {
 
         return (
             <React.Fragment>
-                <div className="BadgeNew__hero">    
-                    <Link to="/Home/Badges/" className="Badge_logo">
-                        <img src={header} alt="logo" className="img-fluid Badge_logo Badge_logo--space "/>
-                    </Link>                
+                <div className="BadgeEdit__hero">    
+                    <Link to="/Home/Badges/" className="BadgeEdit_logo">
+                        <img src={header} alt="logo" className="img-fluid BadgeEdit_logo Badge_logo--space "/>
+                    </Link>
+                    <div className="BadgeEdit__position-action" >
+                        <p className="text-light text-uppercase  mb-1" style={{letterSpacing: "-1px", fontWeight: 'bold', fontSize: "1.8rem",}}  >{this.state.form.firstName} {this.state.form.lastName}</p>  
+                        <div className="d-flex align-items-center justify-content-center" >
+                        <button className="btn btn-primary mx-3" >Edit</button>              
+                        <button className="btn btn-danger mx-3" >Delete</button>  
+                        </div>
+                    </div>            
                 </div>
                 <div className="d-flex align-items-center justify-content-around flex-wrap-reverse" style={{maxWidth: "1366px", margin: "0 auto",}}>
                         < Badge
@@ -70,9 +93,8 @@ class BadgeNews extends React.Component {
                             jobTitle={this.state.form.jobTitle || 'JOB_TITLE'}
                             email={this.state.form.email || 'EMAIL'}
                             />
-                        <div className="BadgeNew__form">
-                            {/* aqui pasamos como props de BadgeForm a handleChange */}
-                        <p className="fs-3 fw-bold text-center change-txt" >NEW  ATTENDANT</p>
+                        <div className="BadgeEdit__form d-none">
+                            {/* aqui pasamos como props de BadgeForm a handleChange */}                        
                         <BadgeForm 
                             onChange={this.handleChange} 
                             onSubmit={this.handleSubmit}
@@ -86,4 +108,4 @@ class BadgeNews extends React.Component {
     }
 } 
 
-export default BadgeNews;
+export default BadgeEdit;

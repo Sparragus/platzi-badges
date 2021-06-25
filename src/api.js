@@ -31,6 +31,9 @@ const api = {
         method: 'POST',
         body: JSON.stringify(badge),
       });
+      /*
+      throw new Error('505: Server error')
+      */ 
     },
     read(badgeId) {
       return callApi(`/badges/${badgeId}`);
