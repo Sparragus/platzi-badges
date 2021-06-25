@@ -6,6 +6,7 @@ import BadgeForm from '../components/BadgeForm';
 import api from '../api'
 import { Link } from 'react-router-dom';
 import PageLoading from '../components/Loader'
+import Modal from '../components/Modal';
 
 
 class BadgeEdit extends React.Component {
@@ -72,14 +73,15 @@ class BadgeEdit extends React.Component {
 
     handleDelete = async e => {
         e.preventDefault()
-        this.setState({ loading: false, error: null })    
+        this.setState({ loading: false, error: null })  
+        
+        
 
         try {
-            
-            // await api.badges.remove(this.props.match.params.badgeId)
+            /*
+            await api.badges.remove(this.props.match.params.badgeId)
             this.setState({ loading: false, })  
-            // this.props.history.push('/Badges')
-            console.log("you`ve clicked");    
+            this.props.history.push('/Badges')*/
         } catch (error) {
             this.setState({ loading: false, error: error })    
         }
@@ -101,7 +103,7 @@ class BadgeEdit extends React.Component {
                         <p className="text-light text-uppercase  mb-1" style={{letterSpacing: "-1px", fontWeight: 'bold', fontSize: "1.8rem",}}  >{this.state.form.firstName} {this.state.form.lastName}</p>  
                         <div className="d-flex align-items-center justify-content-center" >
                         <button className="btn btn-primary mx-3" onClick={()=> { this.setState({vstyle: {ds: "flex",}}) }} >Edit</button>              
-                        <button className="btn btn-danger mx-3" onClick={this.handleDelete} >Delete</button>  
+                        <button className="btn btn-danger mx-3">Delete</button>  
                         </div>
                     </div>            
                 </div>
@@ -123,6 +125,11 @@ class BadgeEdit extends React.Component {
                         />
                     </div>
                 </div>
+                <Modal 
+                    firstName={this.state.form.firstName}
+                    lastName={this.state.form.lastName}
+                    onClick={this.handleDelete}
+                />
             </React.Fragment>
         )
     }
