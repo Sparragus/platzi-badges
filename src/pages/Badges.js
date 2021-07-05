@@ -23,10 +23,10 @@ class Badges extends Component {
   componentDidMount() {
     this.fetchData();
 
-    this.intervalId = setInterval(this.fetchData(), 5000);
+    this.intervalId = setInterval(this.fetchData, 5000);
   }
 
-  componentWillMount() {
+  componentWillUnmount() {
     clearInterval(this.intervalId);
   }
 
@@ -46,7 +46,7 @@ class Badges extends Component {
 
   render() {
 
-    if (this.state.loading === true && !this.state.date) {
+    if (this.state.loading === true && !this.state.data) {
       return <PageLoading />;
     }
 
@@ -66,7 +66,7 @@ class Badges extends Component {
 
         <div className="Badges__container">
           <div className="Badges__buttons">
-            <Link to="/badges/new" className="btn btn-primary"> 
+            <Link to="/badges/new" className="btn btn-primary">
               New Badge
             </Link>
           </div>
