@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-import './styles/BadgeNew.css';
+import './styles/BadgeEdit.css';
 import confLogo from '../images/platziconf-logo.svg';
 import Badge from '../components/Badge';
 import BadgeForm from '../components/BadgeForm';
 import PageLoading from '../components/PageLoading';
 import api from '../api';
 
-class BadgeNew extends Component {
+class BadgeEdit extends Component {
 
   state = {
     loading: false,
@@ -35,10 +35,29 @@ class BadgeNew extends Component {
     this.setState({ loading: true, error: null });
 
     try {
-      await api.badges.create(this.state.form);
+      await api.badges.update(
+        this.props.match.params.badgeId,
+        this.state.form);
       this.setState({ loading: false });
 
       this.props.history.push('/badges');
+    } catch (error) {
+      this.setState({ loading: false, error });
+    }
+  }
+
+  componentDidMount() {
+    this.fetchBadgeData();
+  }
+
+  fetchBadgeData = async e => {
+    this.setState({ loading: true, error: null })
+
+    try {
+      const data = await api.badges.read(
+        this.props.match.params.badgeId
+      );
+      this.setState({ loading: false, form: data });
     } catch (error) {
       this.setState({ loading: false, error });
     }
@@ -52,8 +71,8 @@ class BadgeNew extends Component {
 
     return (
       <>
-        <div className="BadgeNew__hero">
-          <img className="BadgeNew__hero-image img-fluid" src={confLogo} alt="Logo" />
+        <div className="BadgeEdit__hero">
+          <img className="BadgeEdit__hero-image img-fluid" src={confLogo} alt="Logo" />
         </div>
         <div className="container">
           <div className="row">
@@ -68,7 +87,7 @@ class BadgeNew extends Component {
             />
             </div>
             <div className="col-6">
-              <h1>New Attendant</h1>
+              <h1>Edit Attendant</h1>
               <BadgeForm
                 onChange={this.handleChange}
                 formValues={this.state.form}
@@ -84,4 +103,4 @@ class BadgeNew extends Component {
 
 }
 
-export default BadgeNew;
+export default BadgeEdit;
