@@ -6,7 +6,9 @@ import BadgesListItem from '../components/BadgesListItem';
 class BadgesList extends Component {
   render() {
 
-    if (this.props.badges.length === 0) {
+    const badgesList = this.props.badges.slice(0).reverse();
+
+    if (badgesList.length === 0) {
       return (
         <div>
           <h3>No encontramos ningún badge</h3>
@@ -18,7 +20,7 @@ class BadgesList extends Component {
     return (
       <div className="BadgesList">
         <ul className="list-unstyled">
-          {this.props.badges.map(badge => {
+          {badgesList.map(badge => {
             return (
               <li key={badge.id}>
                 <BadgesListItem badge={badge} />

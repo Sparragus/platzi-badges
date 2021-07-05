@@ -4,17 +4,22 @@ import './styles/BadgeNew.css';
 import confLogo from '../images/platziconf-logo.svg';
 import Badge from '../components/Badge';
 import BadgeForm from '../components/BadgeForm';
+import PageLoading from '../components/PageLoading';
 import api from '../api';
 
 class BadgeNew extends Component {
 
-  state = { form: {
-    firstName: '',
-    lastName: '',
-    email: '',
-    jobTitle: '',
-    twitter: '',
-  } };
+  state = {
+    loading: false,
+    error: null,
+    form: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      jobTitle: '',
+      twitter: '',
+    }
+  };
 
   handleChange = e => {
     this.setState({
@@ -25,18 +30,26 @@ class BadgeNew extends Component {
     })
   }
 
-  handkeSubmit = async e => {
+  handleSubmit = async e => {
     e.preventDefault();
+    this.setState({ loading: true, error: null });
 
     try {
       await api.badges.create(this.state.form);
       this.setState({ loading: false });
+
+      this.props.history.push('/badges');
     } catch (error) {
       this.setState({ loading: false, error: error });
     }
   }
 
   render() {
+
+    if (this.state.loading) {
+      return <PageLoading />
+    }
+
     return (
       <>
         <div className="BadgeNew__hero">
@@ -51,11 +64,16 @@ class BadgeNew extends Component {
               firstName={ this.state.form.firstName || 'First Name' }
               lastName={ this.state.form.lastName || 'Last Name' }
               jobTitle = { this.state.form.jobTitle || 'Job Title' }
-              twitter={ this.state.form.twitter || '@twitter' }
+              twitter={ this.state.form.twitter || 'twitter' }
             />
             </div>
             <div className="col-6">
-              <BadgeForm onChange={this.handleChange} formValues={this.state.form} onSubmit={this.handleSubmit} />
+              <BadgeForm
+                onChange={this.handleChange}
+                formValues={this.state.form}
+                onSubmit={this.handleSubmit}
+                error={this.state.error}
+              />
             </div>
           </div>
         </div>
