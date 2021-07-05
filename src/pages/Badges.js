@@ -34,12 +34,16 @@ class Badges extends Component {
       this.setState({ loading: false, error });
     }
   }
-  
+
   render() {
 
     if (this.state.loading === true) {
         return 'Loading...';
     }
+
+    if (this.state.error) {
+      return `Error: ${this.state.error.message}`;
+  }
 
     return (
       <>
