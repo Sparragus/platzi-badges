@@ -26,8 +26,9 @@ class BadgeEdit extends React.Component {
             },
             vstyle: {
                 ds: "none",
-            }            
-
+            },  
+            modalstatus: false,       
+            
         }
     
     }
@@ -95,15 +96,18 @@ class BadgeEdit extends React.Component {
 
         return (
             <React.Fragment>
+                {/* {modalstatus && } */}
                 <div className="BadgeEdit__hero">    
-                    <Link to="/Badges/" className="BadgeEdit_logo">
+                    <Link to="/Badges/" className="BadgenoneEdit_logo">
                         <img src={header} alt="logo" className="img-fluid BadgeEdit_logo Badge_logo--space "/>
                     </Link>
                     <div className="BadgeEdit__position-action" >
                         <p className="text-light text-uppercase  mb-1" style={{letterSpacing: "-1px", fontWeight: 'bold', fontSize: "1.8rem",}}  >{this.state.form.firstName} {this.state.form.lastName}</p>  
                         <div className="d-flex align-items-center justify-content-center" >
                         <button className="btn btn-primary mx-3" onClick={()=> { this.setState({vstyle: {ds: "flex",}}) }} >Edit</button>              
-                        <button className="btn btn-danger mx-3">Delete</button>  
+                        <button className="btn btn-danger mx-3" onClick={() =>  {
+                            this.setState({modalstatus: true})
+                            }} >Delete</button>  
                         </div>
                     </div>            
                 </div>
@@ -124,12 +128,8 @@ class BadgeEdit extends React.Component {
                             error={this.state.error}
                         />
                     </div>
+                    {/* {modalstatus && } */}
                 </div>
-                <Modal 
-                    firstName={this.state.form.firstName}
-                    lastName={this.state.form.lastName}
-                    onClick={this.handleDelete}
-                />
             </React.Fragment>
         )
     }
