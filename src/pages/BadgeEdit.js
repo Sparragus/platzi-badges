@@ -96,7 +96,6 @@ class BadgeEdit extends React.Component {
 
         return (
             <React.Fragment>
-                {/* {modalstatus && } */}
                 <div className="BadgeEdit__hero">    
                     <Link to="/Badges/" className="BadgenoneEdit_logo">
                         <img src={header} alt="logo" className="img-fluid BadgeEdit_logo Badge_logo--space "/>
@@ -128,7 +127,7 @@ class BadgeEdit extends React.Component {
                             error={this.state.error}
                         />
                     </div>
-                    {/* {modalstatus && } */}
+                    {this.state.modalstatus && <Modal />}
                 </div>
             </React.Fragment>
         )
