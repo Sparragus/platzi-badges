@@ -1,0 +1,27 @@
+import React from 'react';
+import { BrowserRouter, Switch ,Route, Redirect } from 'react-router-dom';
+import Home from '../pages/Home'
+import BadgeNew from '../pages/badgeNew'  
+import Badges from '../pages/Badges'
+import NotFound from '../pages/NotFound'
+import BadgeEdit from '../pages/BadgeEdit'
+import Layout from './Layout'
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Layout>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/Badges" component={Badges} />
+          <Route exact path="/Badges/new" component={BadgeNew} />
+          <Route exact path="/Badges/:badgeId/edit" component={BadgeEdit} />
+          <Route exact path="/404" component={NotFound} />
+          <Redirect from="*" to="/404" />
+        </Switch>
+      </Layout>
+    </BrowserRouter>
+  )
+}
+
+export default App;

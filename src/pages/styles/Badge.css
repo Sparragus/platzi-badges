@@ -1,0 +1,78 @@
+.Badges__hero {
+  width: 100%;
+  padding: 2rem 0;
+  background: url('../../images/stars.svg'), #1B1B25;
+  background-repeat: repeat;
+  margin-bottom: 1rem;
+}
+
+.Badges__hero>.Badges__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.Badges__container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.Badges__conf-logo {
+  margin-bottom: 2rem;
+}
+
+.Badges__buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.Badges__input{
+  width: 60%;
+}
+
+
+.Badges__home {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: space-around;
+  background: url('../../images/stars.svg'), #1B1B25;
+  background-repeat: repeat;
+}
+
+.Badges__astronauts-logo{
+  width: 60%;
+  height: 60%;
+}
+
+.Badges__conference-logo {
+  width: 80%;
+}
+
+@media (max-width: 1024px) {
+  .img-fluid{
+    max-width: 50%;
+  }
+  .Badges__astronauts-logo {
+    width: 50%;
+    height: 50%;
+  }
+  
+}
+
+@media (max-width: 563px) {
+  .position-div{
+    margin-top: -200px;
+  }
+  .position-logo{
+    margin-top: -240px ;
+  }
+  .Badges__astronauts-logo {
+    margin-top: -135px;
+
+  }
+
+}

@@ -1,0 +1,32 @@
+.BadgeNew__hero {
+    display: flex;
+    width: 100%;
+    padding: 2rem 0;
+    background: url("../../images/stars.svg"), #1b1b25;
+    background-repeat: repeat;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.BadgeNew__form{
+    margin-top: -150px;
+}
+
+.Badge_logo{
+    max-width: 200px;
+    margin-left: 20vw;
+}
+
+.Badge_logo--space{
+    margin: 0;
+}
+
+@media (max-width: 699px) {
+    .BadgeNew__form{
+        margin: 0;
+    }
+    .Badge_logo{
+        max-width: 170px;
+        margin: 0 auto;
+    }
+}
